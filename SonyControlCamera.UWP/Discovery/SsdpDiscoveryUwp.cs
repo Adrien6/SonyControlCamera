@@ -1,4 +1,3 @@
-using com.sun.xml.@internal.bind.marshaller;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Windows.Networking;
+using Windows.Networking.Connectivity;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using Windows.Web.Http;
 
 namespace SonyControlCamera.DeviceDiscovery
 {
@@ -24,6 +28,7 @@ namespace SonyControlCamera.DeviceDiscovery
         public const string ST_ALL = "ssdp:all";
 
         private uint _MX = 1;
+
         public uint MX
         {
             set { _MX = value; }
@@ -138,6 +143,7 @@ namespace SonyControlCamera.DeviceDiscovery
                         case 6: // Ethernet
                         case 71: // 802.11
                             break;
+
                         default:
                             // Log("Type mismatch: " + profile.ProfileName);
                             continue;
